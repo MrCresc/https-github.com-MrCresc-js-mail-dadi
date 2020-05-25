@@ -14,3 +14,11 @@ body {
 .red {
   color: red;
 }
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+}
