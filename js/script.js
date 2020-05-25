@@ -11,6 +11,11 @@ var button = document.getElementById('button');
 var punteggioUtente
 var punteggioPc
 
+// Immagini Dadi
+var smile = document.getElementById('smile');
+var neutral = document.getElementById('neutral');
+var cry = document.getElementById('cry');
+
 // Verifico se i caratteri messi dall'utente siano corretti per un indirizzo e-mail
 if (email.match(mailformat)) {
   emailCorretta = true;
@@ -46,19 +51,24 @@ document.getElementById('button').className = "visible"
 button.addEventListener('click',
 
   function () {
+    if (smile.className == 'visible' || neutral.className == 'visible' || cry.className == 'visible' ) {
+      smile.className = 'hidden'
+      neutral.className = 'hidden'
+      cry.className = 'hidden'
+    }
     var punteggioUtente = Math.floor(Math.random() * 6) + 1;
     alert("Il tuo punteggio è " + punteggioUtente)
     var punteggioPc = Math.floor(Math.random() * 6) + 1;
     alert("Il punteggio del PC è " + punteggioPc)
     if (punteggioUtente > punteggioPc) {
       alert("Hai vinto che c... fortuna!")
-      document.getElementById('smile').className = "visible"
+      smile.className = "visible"
     } else if (punteggioUtente < punteggioPc) {
       alert("Hai perso MUHAHAHAHAHAHHAH!!!")
-      document.getElementById('cry').className = "visible"
+      cry.className = "visible"
     } else {
       alert("Hai pareggiato!")
-      document.getElementById('neutral').className = "visible"
+      neutral.className = "visible"
     }
   }
 )
